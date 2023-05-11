@@ -59,7 +59,7 @@ def run(job):
 
         job_output.append({
             "image": image_url,
-            "seed": job_input['seed'] + index
+            "seed": validated_input['seed'] + index
         })
 
     # Remove downloaded input objects

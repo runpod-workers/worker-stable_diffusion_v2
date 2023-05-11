@@ -31,7 +31,7 @@ def run(job):
 
     # Download input objects
     job_input['init_image'], job_input['mask'] = rp_download.download_files_from_urls(
-        job('id'),
+        job['id'],
         [job_input.get('init_image', None), job_input.get('mask', None)]
     )  # pylint: disable=unbalanced-tuple-unpacking
 

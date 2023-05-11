@@ -6,7 +6,6 @@ import predict
 import runpod
 from runpod.serverless.utils import rp_download, rp_upload, rp_cleanup
 from runpod.serverless.utils.rp_validator import validate
-from runpod.serverless.utils.rp_upload import upload_file_to_bucket
 
 from rp_schema import INPUT_SCHEMA
 
@@ -56,7 +55,7 @@ def run(job):
     job_output = []
 
     for index, img_path in enumerate(img_paths):
-        image_url = upload_file_to_bucket(job['id'], img_path)
+        image_url = rp_upload.upload_image(job['id'], img_path, index)
 
         job_output.append({
             "image": image_url,

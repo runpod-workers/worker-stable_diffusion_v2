@@ -29,6 +29,7 @@ jobs:
 
       - name: Set Log Level
         run: |
+          echo "RUNPOD_DEBUG_LEVEL=DEBUG" >> $GITHUB_ENV
           export RUNPOD_DEBUG_LEVEL=DEBUG
 
       - name: Run rp_handler.py

@@ -1,0 +1,32 @@
+name: Run Python Script on Self-Hosted Runner
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run_script:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r builder/requirements.txt
+
+      - name: Fetch the model
+        run: |
+          python builder/model_fetcher.py
+
+      - name: Run rp_handler.py
+        run: |
+          python src/rp_handler.py --test_input='{"input": {"prompt": "A happy place."}}'

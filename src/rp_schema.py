@@ -48,7 +48,7 @@ INPUT_SCHEMA = {
         'type': str,
         'required': False,
         'default': 'DPMSolverMultistep',
-        'constraints': lambda scheduler: scheduler in ['DDIM', 'K_EULER', 'DPMSolverMultistep', 'K_EULER_ANCESTRAL', 'PNDM', 'KLMS']
+        'constraints': lambda scheduler: scheduler in ['DDIM', 'K_EULER', 'DPMSolverMultistep', 'K_EULER_ANCESTRAL', 'PNDM', 'K-LMS']
     },
     'seed': {
         'type': int,

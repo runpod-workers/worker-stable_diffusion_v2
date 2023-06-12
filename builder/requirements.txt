@@ -1,7 +1,9 @@
 # Required Python packages get listed here, one per line.
 # Reccomended to lock the version number to avoid unexpected changes.
 
-runpod==0.9.8
+# runpod==0.9.8
+git+https://github.com/runpod/runpod-python/archive/main.zip
+
 diffusers==0.12.1
 torch==1.13.1
 ftfy==6.1.1

@@ -2,7 +2,7 @@
 # Reccomended to lock the version number to avoid unexpected changes.
 
 # runpod==0.9.8
-git+https://github.com/runpod/runpod-python/archive/main.zip
+git+https://github.com/runpod/runpod-python.git@main
 
 diffusers==0.12.1
 torch==1.13.1

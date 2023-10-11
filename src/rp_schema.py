@@ -12,13 +12,13 @@ INPUT_SCHEMA = {
         'type': int,
         'required': False,
         'default': 768,
-        'constraints': lambda width: width in [128, 256, 384, 448, 512, 576, 640, 704, 768, 832, 896, 960, 1024]
+        'constraints': lambda width: 128 <= width <= 1080
     },
     'height': {
         'type': int,
         'required': False,
-        'default': 768,
-        'constraints': lambda height: height in [128, 256, 384, 448, 512, 576, 640, 704, 768, 832, 896, 960, 1024]
+        'default': 432,
+        'constraints': lambda height: 128 <= width <= 1080
     },
     'prompt_strength': {
         'type': float,
@@ -30,12 +30,12 @@ INPUT_SCHEMA = {
         'type': int,
         'required': False,
         'default': 1,
-        'constraints': lambda num_outputs: 10 > num_outputs > 0
+        'constraints': lambda num_outputs: 10 >= num_outputs > 0
     },
     'num_inference_steps': {
         'type': int,
         'required': False,
-        'default': 50,
+        'default': 30,
         'constraints': lambda num_inference_steps: 0 < num_inference_steps < 500
     },
     'guidance_scale': {
@@ -44,10 +44,16 @@ INPUT_SCHEMA = {
         'default': 7.5,
         'constraints': lambda guidance_scale: 0 < guidance_scale < 20
     },
+    'noise_strength': {
+        'type': float,
+        'required': False,
+        'default': 0.35,
+        'constraints': lambda noise_strength: 0 < noise_strength < 1
+    },
     'scheduler': {
         'type': str,
         'required': False,
-        'default': 'DPMSolverMultistep',
+        'default': 'DDIM',
         'constraints': lambda scheduler: scheduler in ['DDIM', 'K_EULER', 'DPMSolverMultistep', 'K_EULER_ANCESTRAL', 'PNDM', 'KLMS']
     },
     'seed': {

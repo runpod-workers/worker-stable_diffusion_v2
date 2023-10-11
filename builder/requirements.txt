@@ -4,11 +4,11 @@
 runpod==1.2.0
 # git+https://github.com/runpod/runpod-python.git@main
 
-diffusers==0.12.1
+diffusers==0.19.3
 torch==1.13.1
 ftfy==6.1.1
-scipy==1.9.3
-transformers==4.25.1
-accelerate==0.15.0
+scipy==1.11.1
+transformers==4.30.0
+accelerate==0.20.3
 xformers
 triton

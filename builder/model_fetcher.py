@@ -47,6 +47,8 @@ def download_model(model_url: str):
     StableDiffusionPipeline.from_pretrained(
         model_id,
         cache_dir=model_cache_path,
+        custom_pipeline="lpw_stable_diffusion",
+        use_safetensors=True,
     )
 
 

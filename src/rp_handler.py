@@ -48,6 +48,7 @@ def run(job):
         num_outputs=validated_input['num_outputs'],
         num_inference_steps=validated_input['num_inference_steps'],
         guidance_scale=validated_input['guidance_scale'],
+        noise_strength=validated_input['noise_strength'],
         scheduler=validated_input['scheduler'],
         seed=validated_input['seed']
     )

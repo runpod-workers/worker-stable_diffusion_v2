@@ -16,7 +16,8 @@ from diffusers import (
 # )
 
 
-MODEL_ID = "stabilityai/stable-diffusion-2-1"
+#MODEL_ID = "stabilityai/stable-diffusion-2-1"
+MODEL_ID = "SG161222/Realistic_Vision_V3.0"
 MODEL_CACHE = "diffusers-cache"
 SAFETY_MODEL_ID = "CompVis/stable-diffusion-safety-checker"
 
@@ -48,9 +49,9 @@ class Predictor:
             seed = int.from_bytes(os.urandom(2), "big")
         print(f"Using seed: {seed}")
 
-        if width * height > 786432:
+        if width * height > 829440:
             raise ValueError(
-                "Maximum size is 1024x768 or 768x1024 pixels, because of memory limits. Please select a lower width or height."
+                "Maximum size is 1080x768 or 768x1080 pixels, because of memory limits. Please select a lower width or height."
             )
 
         self.pipe.scheduler = make_scheduler(scheduler, self.pipe.scheduler.config)
@@ -63,6 +64,7 @@ class Predictor:
             width=width,
             height=height,
             guidance_scale=guidance_scale,
+            noise_strength=noise_strength,
             generator=generator,
             num_inference_steps=num_inference_steps,
         )
